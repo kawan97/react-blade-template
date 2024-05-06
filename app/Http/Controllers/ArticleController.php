@@ -13,7 +13,10 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        //get all articles and paginate by 10
+        $articles = Article::paginate(10);
+        
+        return view('admin/pages/article/index', compact('articles'));
     }
 
     /**
