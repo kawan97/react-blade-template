@@ -1,6 +1,6 @@
 @extends('admin.layouts.app', ['pageTitle' => 'Articles'])
 @section('content')
-    <nav class="flex justify-between py-4" aria-label="Breadcrumb">
+    <nav class="flex items-center justify-between py-4" aria-label="Breadcrumb">
         <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
             <li class="inline-flex items-center">
                 <a href="{{ route('dashboard.home') }}"
@@ -55,6 +55,9 @@
                         view_count
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Language
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         Action
                     </th>
                 </tr>
@@ -71,6 +74,9 @@
                         </td>
                         <td class="px-6 py-4">
                             {{ $article->view_count }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $article->language->name }}
                         </td>
                         <td class="px-6 py-4">
                             <a href="{{ route('dashboard.article.edit', $article->id) }}"

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use App\Models\Article;
+use App\Models\Language;
 
 class ArticleController extends Controller
 {
@@ -13,10 +14,29 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //get all articles and paginate by 10
-        $articles = Article::paginate(10);
+        //get current user
+        $user = auth()->user();
+        $articles = new Article();
+        $languages = new Language();
         
-        return view('admin/pages/article/index', compact('articles'));
+        if($user->language_id != ''){
+            $articles = $articles::where('language_id',$user->language_id);
+            $languages = $languages::where('id','=',$user->language_id);
+        }
+        //get language_id by query string
+        if(request()->has('language_id') && request()->get('language_id')!=''){
+            $articles = $articles->where('language_id',request()->get('language_id'));
+        }
+        //get title by query string
+        if(request()->has('title') && request()->get('title')!=''){
+            $articles = $articles->where('title','like','%'.request()->get('title').'%');
+        }
+        $articles = $articles->orderBy('id','desc');
+        //pagiunate with query string
+        $articles = $articles->paginate(10)->withQueryString();
+        $languages = $languages->orderBy('id','desc')->get();
+
+        return view('admin/pages/article/index', compact('articles','languages'));
     }
 
     /**

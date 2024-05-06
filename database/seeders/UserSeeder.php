@@ -7,7 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
-use App\Models\Article;
+
 class UserSeeder extends Seeder
 {
     /**
@@ -51,15 +51,6 @@ class UserSeeder extends Seeder
         );
         $role->givePermissionTo($permission);
 
-        // create 100 article
-        for ($i = 0; $i < 100; $i++) {
-            Article::create([
-                'title' => 'Article ' . $i,
-                'slug' => 'article-' . $i,
-                'view_count' => rand(1, 1000),
-                'content' => 'Content ' . $i,
-                'language_id' => 1,
-            ]);
-        } 
+
     }
 }
