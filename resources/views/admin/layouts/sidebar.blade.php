@@ -118,11 +118,10 @@
             <li>
                 <a href="{{ route('dashboard.article.index') }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                        <path
-                            d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
-                    </svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 6.02967V19.0297M12 6.02967C9.18144 5.19881 7.28518 4.95351 3.97141 5.00699C3.43077 5.01571 3 5.45968 3 6.0004V16.9993C3 17.5633 3.46636 18.0144 4.03031 18.0067C7.15209 17.9644 9.04776 18.2186 12 19.0297M12 6.02967C14.8186 5.19881 16.7148 4.95351 20.0286 5.00699C20.5692 5.01571 21 5.45968 21 6.0004V16.9993C21 17.5633 20.5336 18.0144 19.9697 18.0067C16.8479 17.9644 14.9522 18.2186 12 19.0297" stroke="#383838" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        
                     <span class="flex-1 ms-3 whitespace-nowrap">Article</span>
                 </a>
             </li>

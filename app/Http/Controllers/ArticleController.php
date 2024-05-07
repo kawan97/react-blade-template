@@ -84,6 +84,9 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        //delete article
+        $article->delete();
+        //rederict to back with success
+        return redirect()->back()->with('success','Article deleted successfully');
     }
 }
